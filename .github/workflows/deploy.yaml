@@ -14,10 +14,10 @@ jobs: #tasks to perform
 
     steps:
       - name: Checkout Repository
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
       
       - name: Setup Node.js
-        uses: action/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 14
       
