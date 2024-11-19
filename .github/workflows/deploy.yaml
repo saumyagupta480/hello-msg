@@ -36,4 +36,4 @@ jobs: #tasks to perform
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages #banch where to push code
-          folder: hello-msg/build #folder to push
+          folder: ../build #folder to push
