@@ -6,11 +6,8 @@ on: #trigger event
   workflow_dispatch: #option for UI trigger
 
 jobs: #tasks to perform
-  build_and_deploy: #job name
+  build: #job name
     runs-on: ubuntu-latest #platform for execution
-
-    permissions: #permission to job to write otherwise push to gh-page branch step would fail
-      contents: write
 
     steps:
       - name: Checkout Repository
@@ -27,6 +24,14 @@ jobs: #tasks to perform
       - name: Build Project
         run: npm run build #create build folder
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [ build ] #dependency on build job
+
+    permissions: #permission to job to write otherwise push to gh-page branch step would fail
+        contents: write
+
+    steps:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
