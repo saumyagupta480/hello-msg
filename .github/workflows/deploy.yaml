@@ -32,3 +32,11 @@ jobs: #tasks to perform
         with:
           branch: gh-pages #banch where to push code
           folder: build #folder to push
+
+  cleanup: #job name
+    needs: 
+      - build_and_deploy #dependency on build_and_deploy job
+    runs-on: ubuntu-latest #platform for execution
+    steps:
+      - name: Print Cleanup
+        run: rm -rf build #remove build folder
