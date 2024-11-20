@@ -1,0 +1,14 @@
+name: Farewell msg react application
+
+on:
+  workflow_run:
+    workflows: ["Welcome msg react application"]
+    types:
+      - completed
+
+jobs:
+  farewell_msg:
+    runs-on: windows-latest
+    steps:
+      - name: Farewell Message
+        run: echo "Bye Bye from React application"

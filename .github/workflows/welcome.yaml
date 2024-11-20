@@ -1,0 +1,11 @@
+name: Welcome msg react application
+
+on:
+  workflow_dispatch:
+
+jobs:
+  welcome_msg:
+    runs-on: windows-latest
+    steps:
+      - name: Welcome Message
+        run: echo "Welcome to React application"
